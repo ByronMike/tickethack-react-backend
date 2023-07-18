@@ -36,7 +36,7 @@ router.get('/', (req, res) => {
     .populate('trip')
     .then(bookings => {
       if (bookings.length > 0) {
-        res.json({ result: true, bookings });
+        res.json({ result: true, data: bookings });
       } else {
         res.json({ result: false, error: 'No bookings found' });
       }

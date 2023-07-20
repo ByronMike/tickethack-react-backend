@@ -1,4 +1,4 @@
-require('dotenv').config();
+require("dotenv").config();
 
 const express = require("express");
 const path = require("path");
@@ -10,6 +10,7 @@ require("./models/connection");
 const indexRouter = require("./routes/index");
 const tripsRouter = require("./routes/trips");
 const cartRouter = require("./routes/cart");
+const bookingsRouter = require("./routes/bookings");
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/trips", tripsRouter);
-app.use("/cart", cartRouter)
+app.use("/cart", cartRouter);
+app.use("/bookings", bookingsRouter);
 
 module.exports = app;

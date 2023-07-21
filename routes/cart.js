@@ -39,13 +39,13 @@ router.get("/", (req, res) => {
       // console.log("backend booking", bookings);
       if (bookings.length > 0) {
         const modifiedBookings = bookings.map((booking) => {
-          const modifiedBookings = { ...booking._doc }; // Create a copy of the trip object
+          const modifiedBooking = { ...booking._doc }; // Create a copy of the trip object
           
           // Add hour and minute properties to the modified trip object
-          modifiedBookings.hour = moment(booking.date).format("HH");
-          modifiedBookings.minute = moment(booking.date).format("mm");
+          modifiedBooking.hour = moment(booking.trip.date).format("HH");
+          modifiedBooking.minute = moment(booking.trip.date).format("mm");
       
-          return modifiedBookings;
+          return modifiedBooking;
         });
         res.json({ result: true, data: modifiedBookings });
       } else {
